@@ -1,4 +1,1 @@
-# full-stack
-# full-stack
-# full-stack
-# full-stack
+Frontend development from scratch
