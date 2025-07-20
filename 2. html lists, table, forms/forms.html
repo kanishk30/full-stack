@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <form>
+        <label>Name</label>
+        <input required type="text" placeholder="Enter your name">
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+
+        <label>Password</label>
+        <input type="password">
+
+        <label>Mobile</label>
+        <input type="number">
+
+        <!-- we want length restrictions -->
+         <input type="text" maxlength="10">
+
+         <label>Age</label>
+         <input type="number" min="1" max="200">
+
+         <label>DOB</label>
+         <input type="date" min="2025-01-01" max="2025-07-01">
+
+         <p>
+            Gender
+
+         </p>
+         <input name="gender" value="male" type="radio">
+         <label>Male</label>
+         <input name="gender" value="female" type="radio">
+         <label>Female</label>
+         <input name="gender" value="other" type="radio">
+         <label>Other</label>
+
+         <p>Food preference</p>
+
+           <input name="food" value="veg" type="checkbox">
+         <label>Vegetarian</label>
+         <input name="food" value="nonveg" type="checkbox">
+         <label>Non Vegetarian</label>
+
+         <label>Eye color</label>
+         <select>
+            <option>Blue</option>
+            <option>Black</option>
+            <option>Brown</option>
+         </select>
+
+         <label for="cars">Choose a car:</label>
+<select  name="cars" id="cars">
+  <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo CAR</option>
+    <option value="saab">Saab</option>
+  </optgroup>
+  <optgroup label="German Cars">
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </optgroup>
+</select>
+<label>Attach</label>
+<input type="file">
+
+<!-- <button>Submit</button> -->
+         <!-- <input type="submit"> -->
+<input type="submit" value="Send ">
+         <button type="submit">
+            Send
+            <h3>jdjd</h3>
+            <img >
+            <i>😂</i>
+              ✅
+         </button>
+            
+            
+    </form>
+</body>
+</html>
