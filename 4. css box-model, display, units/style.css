@@ -44,3 +44,11 @@ box-sizing: border-box;
     box-sizing: content-box;
     margin: 30px;
 }
+
+/* overflow  */
+.container {
+    border: 2px solid blueviolet;
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+}
