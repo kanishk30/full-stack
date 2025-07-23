@@ -13,7 +13,7 @@
 
             display: flex;
             
-            justify-content: space-between;
+            /* justify-content: space-between; */
             /* justify-content: flex-start|flex-end|center|space-between|space-around|space-evenly|initial|inherit; */
 
             align-items: center;
@@ -21,29 +21,44 @@
             flex-direction: row;
 
             flex-wrap: wrap;
+
+            /* row-gap: 30px;
+            column-gap: 30px; */
+
+            gap: 30px 
         }
 
         .box {
             height: 150px;
             width: 150px;
             background-color: blue;
-            margin: 20px;
+            /* margin: 20px; */
             color: white;
            
+        }
+
+        .box1{
+            order: 5;
+        }
+        .box2 {
+            order: 3;
+        }
+        .box3 {
+            order: 4;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="box">1</div>
-        <div class="box">2</div>
-        <div class="box">3</div>
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
         <div class="box">4</div>
-        <div class="box">5</div>
+        <!-- <div class="box">5</div>
         <div class="box">6</div>
         <div class="box">7</div>
         <div class="box">8</div>
-        <div class="box">9</div>
+        <div class="box">9</div> -->
         
         
     </div>
