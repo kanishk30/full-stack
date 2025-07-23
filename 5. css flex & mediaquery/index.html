@@ -68,6 +68,39 @@
             flex-grow: 1;
             flex-basis: auto;
         }
+
+        /* general css for all devices */
+        body {
+            font-size: 16px;
+            margin: 20px;
+        }
+
+        /* media query for screen size less than 600px */
+
+        @media only screen and (max-width: 600px) {
+            body {
+                font-size: 14px;
+                background-color: aqua;
+            }
+        }
+
+        /* media query for screen size more than 600px & less than 900px */
+
+        @media only screen and (max-width: 900px) and (min-width: 601px) {
+            body {
+                font-size: 18px;
+                background-color: pink;
+            }
+        }
+        /* media query for screen size more than 900px */
+
+           @media only screen and (min-width: 901px) {
+            body {
+                font-size: 20px;
+                background-color: lightseagreen;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -83,6 +116,11 @@
         <div class="box">9</div> -->
         
         
+    </div>
+
+    <div>
+        <h1>Responsiveness</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod reiciendis nobis nulla facere nesciunt numquam. Officia, odio doloribus tempore provident cum quia assumenda culpa cupiditate, vitae accusamus, quam voluptate. Officia.</p>
     </div>
 </body>
 </html>
