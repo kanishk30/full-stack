@@ -12,32 +12,31 @@
             width: auto;
 
             display: flex;
-            
+            justify-content: center;
             /* justify-content: space-between; */
             /* justify-content: flex-start|flex-end|center|space-between|space-around|space-evenly|initial|inherit; */
 
             align-items: center;
 
-            flex-direction: row;
+            /* flex-direction: row; */
 
-            flex-wrap: wrap;
+            /* flex-wrap: wrap; */
 
             /* row-gap: 30px;
             column-gap: 30px; */
 
-            gap: 30px 
+            /* gap: 30px  */
         }
 
         .box {
-            height: 150px;
-            width: 150px;
+            height: 200px;
+            width: 200px;
             background-color: blue;
-            /* margin: 20px; */
+            margin: 10px;
             color: white;
-           
         }
 
-        .box1{
+        /* .box1{
             order: 5;
         }
         .box2 {
@@ -45,6 +44,14 @@
         }
         .box3 {
             order: 4;
+        } */
+
+        .box3 {
+            flex-shrink: 2;
+        }
+
+        .box2 {
+            flex-shrink: 3;
         }
     </style>
 </head>
