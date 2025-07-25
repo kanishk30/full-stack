@@ -1,0 +1,42 @@
+body {
+    font-size: 20px;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 'top top top top' 
+    'nav content sidebar sidebar2'
+    'nav footer footer footer'
+    ;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+    grid-template-rows: 60px 1fr 80px;
+}
+
+header, main, nav, aside, .sidebar2, footer {
+    background-color: orangered;
+    color: white;
+    padding: 20px;
+    border: cyan solid 1px;
+}
+
+header {
+    grid-area: top;
+}
+
+nav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: content;
+}
+
+.sidebar2 {
+    grid-area: sidebar2;
+}
+
+aside {
+    grid-area: sidebar;
+}
+
+footer {
+    grid-area: footer;
+}
