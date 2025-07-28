@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .static {
+            top: 100px; /* no effect */
+            
+            left: 200px;/* no effect */
+        }
+
+        .relative {
+            position: relative;
+            top: 10px;  
+            
+            border: solid 1px red;
+        }
+        .absolute {
+            position: absolute;
+            top: 10px;  
+            
+            border: solid 1px green;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="static">
+        hello world, static element.
+    </div>
+
+    <!-- <div class="relative">
+        hello world, relative element.
+    </div> -->
+
+    
+
+    <div class="absolute">
+        hello world, absolute element.
+    </div>
+</body>
+</html>

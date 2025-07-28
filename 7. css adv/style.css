@@ -34,4 +34,18 @@ span {
     background-color: red !important;
 }
 
+p {
+    color: green
+}
+
+
+.parent {
+    color: blue;
+    font-size: 20px;
+}
+
+.child {
+    font-size: inherit; /* inherit font size from parent*/
+    color: inherit; /* inherit text color from parent*/
+}
 
