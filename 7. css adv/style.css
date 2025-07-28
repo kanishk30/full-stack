@@ -1,0 +1,37 @@
+body {
+    font-size: 24px;
+}
+.div-cls2 {
+    border: solid 2px black;
+    border-radius: 10px;
+    
+}
+
+.div-cls {
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    background-color: red;
+}
+
+
+#id-spec {
+    background-color: blue;
+}
+
+.cls-spec {
+    background-color: green !important;
+}
+
+.cls-spec2 {
+    background-color: pink !important;
+} 
+
+span {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: red !important;
+}
+
+
