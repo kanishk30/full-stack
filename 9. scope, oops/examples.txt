@@ -1,0 +1,153 @@
+==========================================
+🧠 JavaScript: Execution Context, Hoisting, TDZ
+==========================================
+
+✅ 1. EXECUTION CONTEXT (EC)
+
+The Execution Context is the environment in which JavaScript code is evaluated and executed.
+
+🔄 Stages:
+----------------------
+1. Creation Phase:
+   - Memory is allocated for variables and functions.
+   - var → hoisted and initialized as undefined
+   - let/const → hoisted but not initialized (in TDZ)
+   - Function declarations → hoisted with full definition
+
+2. Execution Phase:
+   - Variables are assigned actual values.
+   - Functions are executed.
+
+🧩 Components of Execution Context:
+- Variable Environment
+- Lexical Environment (scope)
+- This binding
+
+==========================================
+✅ 2. HOISTING
+
+Hoisting is JavaScript’s behavior of moving declarations to the top of their scope before code execution.
+
+| Declaration | Hoisted | Initialized | TDZ Applies | Can Re-declare |
+|-------------|---------|-------------|-------------|----------------|
+| var         | Yes     | Yes (undefined) | No        | Yes            |
+| let/const   | Yes     | No          | Yes         | No             |
+| function    | Yes     | Yes (full)  | No          | Yes            |
+
+Example:
+----------------------
+console.log(x);     // undefined
+console.log(y);     // ❌ ReferenceError
+console.log(foo()); // ✅ "Hello from foo"
+
+var x = 10;
+let y = 20;
+
+function foo() {
+    return "Hello from foo";
+}
+
+==========================================
+✅ 3. TEMPORAL DEAD ZONE (TDZ)
+
+The Temporal Dead Zone is the time between when a variable is hoisted and when it is initialized.
+
+TDZ applies to let and const:
+----------------------
+{
+    console.log(myLet); // ❌ ReferenceError
+    let myLet = 5;
+}
+
+🧠 TDZ is NOT a memory location. It is a logical (language-level) concept.
+
+Analogy:
+A seat (variable) is reserved in memory, but until someone sits (initializes), no one can even touch it — or you'll get thrown out (ReferenceError).
+
+Example comparing var and let:
+----------------------
+console.log(a); // ✅ undefined (var is hoisted and initialized)
+console.log(b); // ❌ ReferenceError (let is in TDZ)
+
+var a = 10;
+let b = 20;
+
+==========================================
+🧠 MEMORY SNAPSHOT
+
+Creation Phase:
+---------------
+a → undefined
+b → <uninitialized> (TDZ)
+
+Execution Phase:
+---------------
+Line 1: console.log(a) → ✅ prints undefined
+Line 2: console.log(b) → ❌ ReferenceError
+Line 3: var a = 10     → a initialized to 10
+Line 4: let b = 20     → b exits TDZ and is initialized
+
+==========================================
+📊 EXECUTION TIMELINE DIAGRAM
+
+| Time | Code Line     | State                        |
+|------|---------------|------------------------------|
+| t0   | (start)       | a: undefined, b: TDZ         |
+| t1   | console.log(a)| ✅ prints undefined           |
+| t2   | console.log(b)| ❌ ReferenceError (in TDZ)    |
+| t3   | a = 10        | ✅ a: 10                      |
+| t4   | b = 20        | ✅ b: 20, TDZ ends            |
+
+==========================================
+📦 MEMORY STATE
+
+Before execution:
+----------------------
+a: undefined
+b: TDZ (cannot access)
+
+After line 1:
+----------------------
+a: undefined (printed)
+b: TDZ
+
+After line 2:
+----------------------
+💥 ReferenceError for b (still in TDZ)
+
+After line 3 & 4:
+----------------------
+a: 10
+b: 20
+
+==========================================
+🧠 CALL STACK (EC Stack)
+
+Example:
+
+function outer() {
+    let a = 10;
+    function inner() {
+        console.log(a);
+    }
+    inner();
+}
+outer();
+
+Call Stack:
+
+Global EC
+  ↓
+outer() EC
+  ↓
+inner() EC
+
+==========================================
+✅ SUMMARY
+
+- var: hoisted + initialized to undefined
+- let/const: hoisted but not initialized → TDZ applies
+- TDZ is a logical time-based restriction
+- Accessing let/const in TDZ → ReferenceError
+- Function declarations are fully hoisted
+- Execution Context manages memory + scope + this binding
