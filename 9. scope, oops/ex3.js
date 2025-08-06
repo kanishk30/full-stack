@@ -10,3 +10,6 @@ let cap = {
     }
 }
 cap.sayHi();
+
+// 53 Loki
+// ex3.js:7 55 Loki

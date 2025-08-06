@@ -6,8 +6,12 @@ let cap = {
         const iAmInner = function(){
             console.log("55",this.firstName);
         }
+        
         iAmInner();
     }
 }
 cap.sayHi();
+
+// 53 Steve
+// 55 undefined
 

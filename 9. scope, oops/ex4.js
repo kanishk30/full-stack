@@ -14,3 +14,7 @@ let cap = {
     }
 }
 cap.sayHi();
+
+// 53 Steve
+// ex4.js:7 54 Steve
+// ex4.js:9 55 Steve
