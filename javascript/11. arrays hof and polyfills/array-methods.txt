@@ -1,0 +1,80 @@
+7.1.1 splice()
+With the splice() method, you can modify an array (add, remove, and replace elements).
+
+Syntax:
+
+array.splice(start,deleteCount, item1, ..., itemN)
+Example:
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+let splicedArr = arr.splice(2, 3);
+console.log("splicedArr: ", arr,splicedArr); // Output: splicedArr:  [ 1, 2, 6, 7, 8 ] [ 3, 4, 5 ]
+7.1.2 slice()
+slice() returns a new array object containing a shallow copy of a portion of an array.
+
+Syntax:
+
+arr.slice(start,a end)
+
+Example:
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+let slicedArr = arr.slice(2, 4);
+console.log("slicedArr: ", slicedArr); // Output: slicedArr:  [ 3, 4 ]
+7.1.3 concat()
+The concat() method concatenates given arguments to the given string.
+
+Syntax:
+
+str.concat(str1, ..., strN)
+Example:
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+let concatArr = arr.concat([100, 200, 300]);
+console.log("concatArr: ", concatArr);
+ // Output: concatArr:  [
+//     1, 2, 3,   4,   5,
+//     6, 7, 8, 100, 200,
+//   300
+// ]
+console.log("arr",arr);
+// Output : arr [
+//   1, 2, 3, 4,
+//   5, 6, 7, 8
+// ]
+7.1.4 split()
+With the split() method, a string is split (divided) into two or more substrings according to the splitter (or divider).
+
+Syntax:
+
+strings.Split(divider)
+**Example: **
+
+let str = "Hi i am google"
+let arrStr = str.split(" ");
+console.log(arrStr); // Output : [ 'Hi', 'i', 'am', 'google' ]
+7.1.5 trim()
+Using the "trim()" method, we remove both whitespaces from the provided value without affecting its original form.
+
+**Syntax: **
+
+string.trim()
+Example:
+
+let str = "Hi i am google";
+let arrStr = str.trim();
+console.log(arrStr); // Output : Hi i am google
+7.1.6 join()
+The join() method returns a new string by concatenating all of the elements in an array, separated by a specified separator.
+
+Syntax:
+
+arr.join(separator)
+
+Example:
+
+let str = "Hi i am google";
+let arrStr = str.split(" ");
+// joins the array of string into  string on the basis of delimiter
+let joinedStr = arrStr.join("+");
+console.log("joinedStr",joinedStr); // Output : joinedStr Hi+i+am+google
