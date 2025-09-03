@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: coral;
+            margin: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main-title">Hello world</h1>
+    <p id="info">I am a paragraph</p>
+    <button id="add-btn">Add box</button>
+    <button id="change-btn">Change text</button>
+    <button id="remove-btn">Remove Title</button>
+    <button id="reduce-img">Change image</button>
+    
+    <div id="box">I am a box</div>
+
+    <img id="my-image" src="https://placehold.co/600x400" alt="placeholder image">
+
+    <script>
+        // 1. selecting elements
+        const title = document.getElementById("main-title");
+        const changeBtn = document.querySelector("#change-btn")
+
+        // 2. change content + listen to it.
+
+        changeBtn.addEventListener("click", function(){
+            // title.innerText = "Hi, Im changed."
+            // title.innerHTML = "Hi, Im changed."
+            title.textContent = "hi..."
+            title.style.color = "blue"
+        })
+
+        // 3. add an element
+        const addBtn = document.querySelector("#add-btn")
+        addBtn.addEventListener("click", () => {
+            // create a new element.
+            const para = document.createElement("p");
+            para.innerHTML = "I am dynamically added paragraph.";
+            para.style.background = "red"
+            
+            // appending to dom.
+            
+            // const box = document.getElementById("box");
+            // box.appendChild(para)
+            
+            document.body.append(para)
+            
+            
+        })
+        
+        // remove
+        const removeBtn = document.querySelector("#remove-btn");
+
+        removeBtn.addEventListener("click", () => {
+            title.remove()
+        })
+
+        const btn = document.querySelector("button")
+
+        console.log(btn, "button queryselector") // first one only selets
+
+        const btnList = document.querySelectorAll("button")
+        console.log(btnList);
+
+
+
+        // attribute on the image...
+
+        const reduceImgBtn = document.querySelector("#reduce-img")
+        reduceImgBtn.addEventListener("click", () => {
+            const img = document.getElementById("my-image");
+
+            img.setAttribute("src", "data:image/jpeg;base64,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")
+            img.setAttribute("alt", "Girl staring back at you.")
+
+            img.setAttribute("style", "border: 5px solid black");
+
+            console.log(img.getAttribute("src"))
+        })
+
+    </script>
+</body>
+</html>
