@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer-box{
+            height: 300px;
+            width: 300px;
+            background-color: beige;
+        }
+
+        #inner-box{
+            height: 200px;
+            width: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h2>event bubbling</h2>
+    <div id="outer-box">
+        <div id="inner-box">
+            <button>click me</button>
+        </div>
+
+    </div>
+
+    <script>
+        const outer = document.getElementById("outer-box");
+        const inner = document.getElementById("inner-box");
+        const btn = document.querySelector("button");
+
+        btn.addEventListener("click", function(e){
+            console.log("button clicked: ")
+            console.log("e.target", e.target)
+            console.log("e.currentTarget", e.currentTarget)
+        })
+
+         inner.addEventListener("click", function(e){
+            console.log("inner box clicked: ")
+            // e.stopPropagation()
+            e.stopImmediatePropagation()
+            console.log("inner box e.target", e.target)
+            console.log("inner box e.currentTarget", e.currentTarget)
+        })
+
+         inner.addEventListener("click", function(e){
+            console.log("2 inner box clicked: ")
+            // e.stopPropagation()
+            // e.stopImmediatePropagation()
+            console.log("2 inner box e.target", e.target)
+            console.log("2 inner box e.currentTarget", e.currentTarget)
+        })
+
+           outer.addEventListener("click", function(e){
+            console.log("outer box clicked: ")
+            console.log("outer box e.target", e.target)
+            console.log("outer box e.currentTarget", e.currentTarget)
+        })
+
+        document.addEventListener("click", function(e){
+            console.log("document was clicked")
+            console.log("document e.target", e.target)
+            console.log("document e.currentTarget", e.currentTarget)
+        })
+
+        
+    </script>
+</body>
+</html>
