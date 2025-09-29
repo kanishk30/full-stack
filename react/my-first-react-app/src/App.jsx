@@ -1,23 +1,33 @@
-import { useState } from 'react'
+import  {Fragment } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Hello from './Hello'
-
+import MyComponent from './Hello'
+import DisplayData from "./DisplayData"
+import Welcome from './Welcome'
+import Button from './Button'
 
 function App() {
+  // const fruits = ['apple', 'banana'];
+  const fruits = [];
+  const person = {
+    name: "Alice",
+    age: 25
+  }
 
   return (
-    <> 
-      <h1>Vite + React!!!!!!!</h1>
-      <Hello name="kanishk" />
-      <Hello />
-      <Hello />
-      <Hello />
-      <Hello />
-      <Hello />
-      <Hello />
-    </>
+    <Fragment>
+ 
+      {/* <h1>Vite + React!!!!!!!</h1>
+      <MyComponent name="kanishk" job="SDE" />
+      <MyComponent name='Jill' job="Teacher" />
+      <MyComponent /> */}
+ 
+    <DisplayData fruits={fruits} person={person} />
+    {/* <Welcome name="Oscar"/>
+    <Welcome />
+    <Button /> */}
+    </Fragment>
   )
 }
 
