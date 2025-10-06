@@ -7,6 +7,8 @@ import DisplayData from "./DisplayData"
 import Welcome from './Welcome'
 import Button from './Button'
 
+import Counter from './Counter'
+
 function App() {
   // const fruits = ['apple', 'banana'];
   const fruits = [];
@@ -17,16 +19,18 @@ function App() {
 
   return (
     <Fragment>
- 
       {/* <h1>Vite + React!!!!!!!</h1>
       <MyComponent name="kanishk" job="SDE" />
       <MyComponent name='Jill' job="Teacher" />
       <MyComponent /> */}
  
-    <DisplayData fruits={fruits} person={person} />
+    {/* <DisplayData fruits={fruits} person={person} /> */}
     {/* <Welcome name="Oscar"/>
     <Welcome />
     <Button /> */}
+
+    <h2>useState example</h2>
+    <Counter />
     </Fragment>
   )
 }
