@@ -8,7 +8,7 @@ import Welcome from './Welcome'
 import Button from './Button'
 
 import Counter from './Counter'
-import Form from './Form'
+import {SimpleForm, ComplexForm} from './Form'
 
 function App() {
   // const fruits = ['apple', 'banana'];
@@ -33,7 +33,9 @@ function App() {
     <h2>useState example</h2>
     {/* <Counter /> */}
 
-    <Form />
+    <SimpleForm />
+
+    <ComplexForm/>
     </Fragment>
   )
 }
