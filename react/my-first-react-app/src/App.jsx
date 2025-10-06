@@ -1,4 +1,4 @@
-import  {Fragment } from 'react'
+import  {Fragment, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -12,6 +12,9 @@ import {SimpleForm, ComplexForm} from './Form'
 
 import FetchData from './FetchData'
 
+import TemperatureInput from './TemperatureInput'
+import TemperatureDisplay from './TemperatureDisplay'
+
 function App() {
   // const fruits = ['apple', 'banana'];
   const fruits = [];
@@ -19,6 +22,12 @@ function App() {
     name: "Alice",
     age: 25
   }
+
+    const [temperature, setTemperature] = useState("")
+
+    const handleTemperature = e => {
+        setTemperature(e.target.value)
+    }
 
   return (
     <Fragment>
@@ -39,7 +48,12 @@ function App() {
 
     <ComplexForm/> */}
 
-    <FetchData />
+    {/* <FetchData /> */}
+
+    <h3>Lifting state up</h3>
+
+    <TemperatureInput temperature={temperature} handleTemperature={handleTemperature} />
+    <TemperatureDisplay temperature={temperature} />
     </Fragment>
   )
 }
