@@ -10,6 +10,8 @@ import Button from './Button'
 import Counter from './Counter'
 import {SimpleForm, ComplexForm} from './Form'
 
+import FetchData from './FetchData'
+
 function App() {
   // const fruits = ['apple', 'banana'];
   const fruits = [];
@@ -30,12 +32,14 @@ function App() {
     <Welcome />
     <Button /> */}
 
-    <h2>useState example</h2>
+    {/* <h2>useState example</h2>
     <Counter />
 
     <SimpleForm />
 
-    <ComplexForm/>
+    <ComplexForm/> */}
+
+    <FetchData />
     </Fragment>
   )
 }
