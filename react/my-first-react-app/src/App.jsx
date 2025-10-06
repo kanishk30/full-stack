@@ -8,6 +8,7 @@ import Welcome from './Welcome'
 import Button from './Button'
 
 import Counter from './Counter'
+import Form from './Form'
 
 function App() {
   // const fruits = ['apple', 'banana'];
@@ -30,7 +31,9 @@ function App() {
     <Button /> */}
 
     <h2>useState example</h2>
-    <Counter />
+    {/* <Counter /> */}
+
+    <Form />
     </Fragment>
   )
 }
