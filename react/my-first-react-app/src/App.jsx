@@ -31,7 +31,7 @@ function App() {
     <Button /> */}
 
     <h2>useState example</h2>
-    {/* <Counter /> */}
+    <Counter />
 
     <SimpleForm />
 
