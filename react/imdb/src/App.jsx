@@ -5,19 +5,20 @@ import './App.css'
 import {Routes, Route} from 'react-router-dom';
 
 import Navbar from './components/Navbar'
+import WatchList from './components/WatchList'
+import Home from './components/Home'
 
 
 function App() {
 
   return (
     <>
-        <h1 className='text-3xl font-bold bg-sky-100'>Hello</h1>
         <Navbar />
 
 
         <Routes>
-          <Route path='/' element={<div>Home page loaded</div>} />
-          <Route path='/watchlist' element={<div>Watchlist page loaded</div>} />
+          <Route path='/' element={<Home />} />
+          <Route path='/watchlist' element={<WatchList />} />
         </Routes>
     </>
   )
