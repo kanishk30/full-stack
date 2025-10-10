@@ -24,8 +24,16 @@ const Movies = () => {
             title: "Movie 5"
         },
     ])
+    const [pageNo, setPageNo] = useState(1);
+    
+    const handlePrev = () => {
+        if(pageNo === 1) return;
+        setPageNo(pageNo - 1)
+    }
 
-
+    const handleNext = () => {
+        setPageNo(pageNo + 1)
+    }
 
   return (
     <div>
@@ -49,6 +57,16 @@ const Movies = () => {
                     </div>
                 </>
             ))}
+        </div>
+
+        <div className='bg-gray-500 h-[50px] p-4 w-full flex justify-center gap-2 mt-8'>
+            <span onClick={handlePrev} className='cursor-pointer px-4'>
+                <i class="fa-solid fa-arrow-left"></i>
+            </span>
+            <span>{pageNo}</span>
+            <span onClick={handleNext} className='cursor-pointer px-4'>
+                <i class="fa-solid fa-arrow-right"></i>
+            </span>
         </div>
     </div>
   )
