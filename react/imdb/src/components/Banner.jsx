@@ -1,6 +1,21 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 const Banner = () => {
+  
+  useEffect(() => {
+
+    async function fetchTrendingMovie() {
+      fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=e278e3c498ab14e0469bf6d86da17045")
+      .then(res => res.json())
+      .then(data => {console.log("data",data)})
+    }
+
+    fetchTrendingMovie()
+
+
+
+  }, [])
+
   return (
     <div 
     className='h-[20vh] md:h-[65vh] bg-cover bg-center  flex justify-center  items-end '
