@@ -7,6 +7,13 @@ const Movies = () => {
     const [pageNo, setPageNo] = useState(1);
 
     const [watchlist, setWatchlist] = useState([]);
+
+    useEffect(() => {
+        const moveisFromLocalStorage = localStorage.getItem("movies");
+        if(moveisFromLocalStorage){
+            setWatchlist(JSON.parse(moveisFromLocalStorage))
+        }
+    }, [])
     
       useEffect(() => {
         async function fetchTrendingMovie() {
@@ -33,12 +40,14 @@ const Movies = () => {
         const updatedList = [...watchlist, movieObj]
         console.log(watchlist)
         setWatchlist(updatedList);
+        localStorage.setItem("movies", JSON.stringify(updatedList));
     }
 
     const removeFromWatchList = (movieObj) => {
         // remove from movieObj to watchlist array.
         const filteredMovies = watchlist.filter((movie) => movie.id !== movieObj.id);
         setWatchlist(filteredMovies)
+        localStorage.setItem("movies", JSON.stringify(filteredMovies));
 
     }
 
