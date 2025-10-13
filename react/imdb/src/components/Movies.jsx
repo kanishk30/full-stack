@@ -1,31 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import {BASE_IMG_URL} from '../util'
 
 const Movies = () => {
 
-    const [movies, setMovies] = useState([
-        {
-            url: "https://fastly.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68",
-            title: "Movie 1"
-        },
-        {
-            url: "https://fastly.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68",
-            title: "Movie 2"
-        },
-        {
-            url: "https://fastly.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68",
-            title: "Movie 3"
-        },
-        {
-            url: "https://fastly.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68",
-            title: "Movie 4"
-        },
-        {
-            url: "https://fastly.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68",
-            title: "Movie 5"
-        },
-    ])
+    const [movies, setMovies] = useState([])
     const [pageNo, setPageNo] = useState(1);
     
+      useEffect(() => {
+        async function fetchTrendingMovie() {
+          fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=e278e3c498ab14e0469bf6d86da17045&page=${pageNo}`)
+          .then(res => res.json())
+          .then(data => {
+            setMovies(data.results)
+          })
+        }
+        fetchTrendingMovie()
+      }, [pageNo])
+
     const handlePrev = () => {
         if(pageNo === 1) return;
         setPageNo(pageNo - 1)
@@ -33,6 +24,11 @@ const Movies = () => {
 
     const handleNext = () => {
         setPageNo(pageNo + 1)
+    }
+
+    const addToWatchList = (movieObj) => {
+        // add this movieObj to watchlist array.
+        console.log({movieObj})
     }
 
   return (
@@ -43,17 +39,26 @@ const Movies = () => {
         >
             {movies.map((movieObj) => (
                 <>
-                    
                     <div
                          className='h-[40vh] w-[200px] bg-center bg-cover rounded-xl 
-                         flex items-end justify-between 
+                         flex items-start justify-between 
                          hover:cursor-pointer hover:scale-105 duration-300'
                     style={{
-                        backgroundImage: `url(${movieObj.url})`
+                        backgroundImage: `url(${BASE_IMG_URL}${movieObj.poster_path})`
                     }}>
                        <div className='text-white w-full text-xl bg-gray-900/65 p-3'>
                         {movieObj.title}
                        </div>
+                       <div 
+                            className=' bg-gray-900/65 flex justify-center h-4 w-4 items-center m-3'
+                            role='button'
+                            onClick={() => addToWatchList(movieObj)}
+                            >
+                          😍
+                       </div>
+                       {/* <div>
+                        ❌
+                       </div> */}
                     </div>
                 </>
             ))}
