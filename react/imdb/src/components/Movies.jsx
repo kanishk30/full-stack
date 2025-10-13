@@ -5,6 +5,8 @@ const Movies = () => {
 
     const [movies, setMovies] = useState([])
     const [pageNo, setPageNo] = useState(1);
+
+    const [watchlist, setWatchlist] = useState([]);
     
       useEffect(() => {
         async function fetchTrendingMovie() {
@@ -28,7 +30,26 @@ const Movies = () => {
 
     const addToWatchList = (movieObj) => {
         // add this movieObj to watchlist array.
-        console.log({movieObj})
+        const updatedList = [...watchlist, movieObj]
+        console.log(watchlist)
+        setWatchlist(updatedList);
+    }
+
+    const removeFromWatchList = (movieObj) => {
+        // remove from movieObj to watchlist array.
+        const filteredMovies = watchlist.filter((movie) => movie.id !== movieObj.id);
+        setWatchlist(filteredMovies)
+
+    }
+
+    function doesContainWatchlist(movieObj){
+        for(let i = 0 ; i < watchlist.length; i++){
+            if(watchlist[i].id === movieObj.id){
+                return true; // already added to watchlist. show cross
+            } 
+        }
+       return false; // show heart
+
     }
 
   return (
@@ -45,20 +66,28 @@ const Movies = () => {
                          hover:cursor-pointer hover:scale-105 duration-300'
                     style={{
                         backgroundImage: `url(${BASE_IMG_URL}${movieObj.poster_path})`
-                    }}>
+                    }}
+                    key={movieObj.id}>
                        <div className='text-white w-full text-xl bg-gray-900/65 p-3'>
                         {movieObj.title}
                        </div>
-                       <div 
+                       {doesContainWatchlist(movieObj) ?  <div 
+                            className=' bg-gray-900/65 flex justify-center h-4 w-4 items-center m-3'
+                            role='button'
+                            onClick={() => removeFromWatchList(movieObj)}
+                            >
+                          ❌
+                       </div>
+                       : 
+                        <div 
                             className=' bg-gray-900/65 flex justify-center h-4 w-4 items-center m-3'
                             role='button'
                             onClick={() => addToWatchList(movieObj)}
                             >
-                          😍
-                       </div>
-                       {/* <div>
-                        ❌
-                       </div> */}
+                         😍
+                       </div>}
+                      
+                    
                     </div>
                 </>
             ))}
