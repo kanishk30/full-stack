@@ -10,6 +10,17 @@ const WatchList = () => {
               setWatchlist(JSON.parse(moveisFromLocalStorage))
           }
       }, [])
+
+      function handleAscRatings(){
+        const sortedAscMovies = watchlist.sort((a,b) => a.vote_average - b.vote_average);
+        // setWatchlist(sortedAscMovies) NT WORKING as same reference.
+        setWatchlist(sortedAscMovies.slice())
+      }
+
+      function handleDescRatings(){
+          const sortedDescMovies = watchlist.sort((a,b) => b.vote_average - a.vote_average);
+        setWatchlist([...sortedDescMovies])
+      }
           
   return (
     <div>
@@ -17,7 +28,11 @@ const WatchList = () => {
           <thead>
               <tr className='bg-gray-50'>
                 <th>Name</th>
-                <th>Ratings</th>
+                <th>
+                  <i class="fa-solid fa-arrow-up" onClick={handleAscRatings}></i>
+                  <span className='px-2'>Ratings</span>
+                  <i class="fa-solid fa-arrow-down" onClick={handleDescRatings}></i>
+                  </th>
                 <th>Popularity</th>
                 <th>Genre</th>
                 <th>Delete</th>
