@@ -21,3 +21,5 @@ export const GENREIDS = {
   "10752": "Kriegsfilm",
   "37": "Western"
 }
+
+export const ALL_GENRES = "All Genres"
