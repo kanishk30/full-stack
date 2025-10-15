@@ -54,7 +54,11 @@ const WatchList = () => {
         setCurrGenre(genre)
       }
 
-      
+      function removeWatchlist(movieObj){
+        const filteredMovies = watchlist.filter((movie) => movie.id !== movieObj.id);
+        setWatchlist(filteredMovies)
+        localStorage.setItem("movies", JSON.stringify(filteredMovies));
+      }
           
   return (
     <>
@@ -121,7 +125,7 @@ const WatchList = () => {
                     .join(', ')
                   }
                 </td>
-                <td className='p-4'><button  >❌</button></td>
+                <td className='p-4'><button onClick={() => removeWatchlist(movieObj)}>❌</button></td>
               </tr>
             ))}
               
