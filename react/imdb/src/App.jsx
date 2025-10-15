@@ -8,11 +8,13 @@ import Navbar from './components/Navbar'
 import WatchList from './components/WatchList'
 import Home from './components/Home'
 
+import MovieContextWrapper from './context/MovieContext';
+
 
 function App() {
 
   return (
-    <>
+    <MovieContextWrapper>
         <Navbar />
 
 
@@ -20,7 +22,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/watchlist' element={<WatchList />} />
         </Routes>
-    </>
+    </MovieContextWrapper>
   )
 }
 

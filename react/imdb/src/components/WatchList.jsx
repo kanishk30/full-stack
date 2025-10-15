@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {BASE_IMG_URL, GENREIDS, ALL_GENRES} from '../util'
 
+import { MovieContext } from '../context/MovieContext';
 
 
 const WatchList = () => {
-      const [watchlist, setWatchlist] = useState([]);
+      // const [watchlist, setWatchlist] = useState([]);
       const [search, setSearch] = useState("");
       const [genreList, setGenreList] = useState([]);
       const [currGenre, setCurrGenre] = useState(ALL_GENRES);
+      
+      const {removeFromWatchList, watchlist, setWatchlist} = useContext(MovieContext)
       
 
       useEffect(() => {
@@ -54,11 +57,12 @@ const WatchList = () => {
         setCurrGenre(genre)
       }
 
-      function removeWatchlist(movieObj){
-        const filteredMovies = watchlist.filter((movie) => movie.id !== movieObj.id);
-        setWatchlist(filteredMovies)
-        localStorage.setItem("movies", JSON.stringify(filteredMovies));
-      }
+    //      const removeFromWatchList = (movieObj) => {
+    //     // remove from movieObj to watchlist array.
+    //     const filteredMovies = watchlist.filter((movie) => movie.id !== movieObj.id);
+    //     setWatchlist(filteredMovies)
+    //     localStorage.setItem("movies", JSON.stringify(filteredMovies));
+      // }
           
   return (
     <>
@@ -125,7 +129,7 @@ const WatchList = () => {
                     .join(', ')
                   }
                 </td>
-                <td className='p-4'><button onClick={() => removeWatchlist(movieObj)}>❌</button></td>
+                <td className='p-4'><button onClick={() => removeFromWatchList(movieObj)}>❌</button></td>
               </tr>
             ))}
               
