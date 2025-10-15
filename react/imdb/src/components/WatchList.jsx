@@ -4,6 +4,9 @@ import {BASE_IMG_URL, GENREIDS} from '../util'
 const WatchList = () => {
       const [watchlist, setWatchlist] = useState([]);
 
+      const [search, setSearch] = useState("");
+      
+
       useEffect(() => {
           const moveisFromLocalStorage = localStorage.getItem("movies");
           if(moveisFromLocalStorage){
@@ -21,8 +24,20 @@ const WatchList = () => {
           const sortedDescMovies = watchlist.sort((a,b) => b.vote_average - a.vote_average);
         setWatchlist([...sortedDescMovies])
       }
+
+      function handleSearch(ev) {
+        setSearch(ev.target.value);
+      }
           
   return (
+    <>
+    {/* search starts */}
+    <div className='flex justify-center my-8'>
+        <input value={search} onChange={handleSearch} placeholder='Search by movie name'
+          className='border border-gray-500 h-[3rem] w-[15rem] px-4 rounded-lg'
+        />
+    </div>
+    {/* table starts */}
     <div>
       <table className='w-full border border-gray-200 shadow-md m-5 rounded-lg'>
           <thead>
@@ -39,7 +54,9 @@ const WatchList = () => {
               </tr>
           </thead>
           <tbody className='divide-y divide-gray-100 border-t border-gray-100'>
-            {watchlist.map((movieObj) => (
+            {watchlist
+            .filter((movieObj) => movieObj.title.toUpperCase().startsWith(search.toUpperCase()))
+            .map((movieObj) => (
               <tr>
                 <td className='flex items-center p-4'>
                   <img src={BASE_IMG_URL+movieObj.backdrop_path} alt='Movie poster' className='h-[6rem] w-[10rem] p-4 object-fill' />
@@ -62,6 +79,7 @@ const WatchList = () => {
           </tbody>
       </table>
     </div>
+    </>
   )
 }
 
