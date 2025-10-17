@@ -29,6 +29,17 @@ function App() {
         setTemperature(e.target.value)
     }
 
+
+    const [count, setCount] = useState(0)
+
+    function handleIncr(){
+      setCount(count+1)
+    }
+    
+    function handleDecr(){
+      setCount(count-1)
+    }
+
   return (
     <Fragment>
       {/* <h1>Vite + React!!!!!!!</h1>
@@ -50,11 +61,23 @@ function App() {
 
     {/* <FetchData /> */}
 
-    <h3>Lifting state up</h3>
+    {/* <h3>Lifting state up</h3>
 
     <TemperatureInput temperature={temperature} handleTemperature={handleTemperature} />
     <TemperatureDisplay temperature={temperature} />
-    </Fragment>
+     */}
+
+hello
+
+<h3>Intuition for redux</h3>
+
+<div>
+  <button onClick={handleDecr}> - </button>
+  <span>{count}</span>
+  <button onClick={handleIncr}> + </button>
+</div>
+
+     </Fragment>
   )
 }
 
