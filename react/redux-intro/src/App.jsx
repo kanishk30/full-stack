@@ -6,12 +6,17 @@ import Counter from './components/counter/Counter'
 import CounterRedux from './components/counter/CounterRedux'
 import TodoRedux from './components/todo/TodoRedux'
 
+import User from './components/user/User'
+import UserRedux from './components/user/UserRedux'
+
 function App() {
   return (
     <>
       <Counter />
       <CounterRedux />
       <TodoRedux />
+      <User />
+      <UserRedux />
     </>
   )
 }
