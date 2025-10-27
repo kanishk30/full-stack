@@ -3,59 +3,43 @@ import MovieCard from './MovieCard';
 import {MovieContext} from '../context/MovieContext'
 import { useContext } from 'react';
 
+import {useSelector, useDispatch} from 'react-redux'
+import paginationSlice from '../redux/paginationSlice';
+import movieSlice from '../redux/movieSlice';
+
+import {fetchTrendingMovieMiddleware} from '../middlewares/fetchMovieMiddleware'
+
+const paginationActions = paginationSlice.actions;
+const movieActions = movieSlice.actions;
 
 const Movies = () => {
 
-    const [movies, setMovies] = useState([])
-    const [pageNo, setPageNo] = useState(1);
+    const {pageNo} = useSelector((state) => state.paginationState)
+    const {movies, loading, error} = useSelector((state) => state.movieState)
 
-    // const [watchlist, setWatchlist] = useState([]);
-
-    // useEffect(() => {
-    //     const moveisFromLocalStorage = localStorage.getItem("movies");
-    //     if(moveisFromLocalStorage){
-    //         setWatchlist(JSON.parse(moveisFromLocalStorage))
-    //     }
-    // }, [])
+    const dispatch = useDispatch()
 
     const {addToWatchList, removeFromWatchList, watchlist} = useContext(MovieContext)
     
       useEffect(() => {
-        async function fetchTrendingMovie() {
-          fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=e278e3c498ab14e0469bf6d86da17045&page=${pageNo}`)
-          .then(res => res.json())
-          .then(data => {
-            setMovies(data.results)
-          })
-        }
-        fetchTrendingMovie()
+       dispatch(fetchTrendingMovieMiddleware(pageNo));
       }, [pageNo])
 
     const handlePrev = () => {
-        if(pageNo === 1) return;
-        setPageNo(pageNo - 1)
+      dispatch(paginationActions.handlePrev())
     }
-
+    
     const handleNext = () => {
-        setPageNo(pageNo + 1)
+      dispatch(paginationActions.handleNext())
     }
 
-    // const addToWatchList = (movieObj) => {
-    //     // add this movieObj to watchlist array.
-    //     const updatedList = [...watchlist, movieObj]
-    //     console.log(watchlist)
-    //     setWatchlist(updatedList);
-    //     localStorage.setItem("movies", JSON.stringify(updatedList));
-    // }
+    if(loading) {
+      return <h3>Loading....</h3>
+    }
 
-    // const removeFromWatchList = (movieObj) => {
-    //     // remove from movieObj to watchlist array.
-    //     const filteredMovies = watchlist.filter((movie) => movie.id !== movieObj.id);
-    //     setWatchlist(filteredMovies)
-    //     localStorage.setItem("movies", JSON.stringify(filteredMovies));
-
-    // }
-
+    if(error) {
+      return <h3>Something wrong!</h3>
+    }
 
   return (
     <div>
