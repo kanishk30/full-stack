@@ -8,6 +8,7 @@ Routes,
 } from "react-router-dom"; 
 
 import Memo from './Memo';
+import Callback from './Callback';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
             </ul>
         </nav>
         <Memo />
+        <Callback />
       <Suspense fallback={<div>Loading...</div>}>
 
            <Routes>
