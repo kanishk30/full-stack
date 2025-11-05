@@ -7,17 +7,25 @@ import WelcomeClass from './WelcomeClass'
 import Counter from './Counter'
 import Todolist from './Todo'
 import TodoFunctional from './TodoFunctional'
+import withLoading from './hoc/Loading'
+import Data from './Data'
+
+
+const EnhancedDataComponent = withLoading(Data)
+const EnhancedCiunterComponent = withLoading(Counter)
 
 function App() {
   
 
   return (
     <>
-    <WelcomeFunctional />
+    {/* <WelcomeFunctional />
     <WelcomeClass name="Alice" />
-    <Counter />
+    <Counter /> */}
     {/* <Todolist /> */}
-    <TodoFunctional />
+    {/* <TodoFunctional /> */}
+    <EnhancedDataComponent data="some data... " />
+    <EnhancedCiunterComponent />
     </>
   )
 }
