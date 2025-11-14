@@ -23,6 +23,6 @@ fs.rename("file-new.txt", "file.txt", () => {})
 // stats
 
 fs.stat("file.txt", (err, stat) => {
-    console.log("size: ", stat.size)
+    console.log("size: ", stat.size) // size in bytes.
     console.log("is directory?: ", stat.isDirectory())
 })
