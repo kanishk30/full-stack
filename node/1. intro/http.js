@@ -13,11 +13,6 @@ const server2 = http.createServer((req, res) => {
 })
 
 server.listen(3000, 'localhost', () => {
-    console.log("Server is running on 3000....")
+    console.log("Server is running on 3000")
 })
-server2.listen(3001, 'localhost', (err) => {
-    if(err){
-        console.log(err)
-    }
-    console.log("Server is running on 3000....")
-})
+
