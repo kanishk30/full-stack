@@ -7,6 +7,9 @@ const users = [{
     name: "jill", age: 30, id: "2"
 }]
 
+// middleware
+app.use(express.json())
+
 app.get('/', (req, res) => {
     res.send("Hello from express")
 })
@@ -34,6 +37,11 @@ app.get('/users/:id', (req,res) => {
     res.status(200).json({message: "User found: ", user})
 })
 
+
+app.post("/data", (req, res) => {
+    console.log("POST /data", req.body)
+    res.send("Received a POST request")
+})
 
 
 
